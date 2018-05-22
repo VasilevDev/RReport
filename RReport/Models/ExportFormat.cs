@@ -24,8 +24,10 @@ namespace RReport.Models
 				case "xml":
 					result = StiNetCoreReportResponse.ResponseAsXml(report);
 					break;
-				
-					//todo
+				case "doc":
+					result = StiNetCoreReportResponse.ResponseAsWord2007(report);
+					break;
+
 				default:
 					throw new Exception("Недопустимый формат файла");
 			}

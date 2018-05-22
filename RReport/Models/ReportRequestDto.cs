@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Newtonsoft.Json.Linq;
 
 namespace RReport.Models
 {
 	public class ReportRequestDto
 	{
 		public string Report { get; set; }
-		public object Data { get; set; }
+		public JToken Data { get; set; }
 		public string Output { get; set; }
+		public string DataProvider { get; set; }
 	}
 }

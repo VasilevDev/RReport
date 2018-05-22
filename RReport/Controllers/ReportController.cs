@@ -21,12 +21,13 @@ namespace RReport.Controllers
 		[HttpPost]
 		public IActionResult GetReport([FromBody]ReportRequestDto reportRequest)
 		{
+			ReportTemplateLoader loader = new ReportTemplateLoader();
 			StiReport report = new StiReport();
 			IDataProvider provider = null;
 
 			try
 			{
-				report.Load(StiNetCoreHelper.MapPath(this, $"Reports/{reportRequest.Report}"));
+				loader.Load(report, reportRequest.Report);
 
 				if (reportRequest.DataProvider.ToLower() == "xml")
 				{

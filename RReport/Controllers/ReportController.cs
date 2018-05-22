@@ -49,16 +49,14 @@ namespace RReport.Controllers
 					provider = new UrlDataProvider("URL");
 					report.RegData(provider.GetData());
 				}
+
+				ExportFormat exporter = new ExportFormat();
+				return exporter.ExportReport(report, reportRequest.Output.ToLower());
 			}
 			catch(Exception ex)
 			{
 				return StatusCode(500, ex.Message);
 			}
-
-			ExportFormat exporter = new ExportFormat();
-			return exporter.ExportReport(report, reportRequest.Output.ToLower());
-
-			//return StiNetCoreReportResponse.ResponseAsPdf(report);
 		}
 	}
 }
